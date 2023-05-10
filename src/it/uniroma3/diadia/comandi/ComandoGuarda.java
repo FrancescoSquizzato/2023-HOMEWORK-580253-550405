@@ -11,21 +11,18 @@ public class ComandoGuarda implements Comando {
 
 	@Override
 	public void esegui(Partita partita) {
-		io.mostraMessaggio(partita.getLabirinto().getStanzaCorrente().getDescrizione());
+		io.mostraMessaggio(partita.getStanzaCorrente().getDescrizione());
 		io.mostraMessaggio("Hai ancora: "+partita.getGiocatore().getCfu()+ "CFU");
 		io.mostraMessaggio(partita.getGiocatore().getBorsa().toString());
-		
+
 	}
 
 	@Override
-	public void setParametro(String parametro) {
-		// TODO Auto-generated method stub
-
+	public void setParametro(String parametro) {	
 	}
 
 	@Override
 	public String getParametro() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -1,7 +1,7 @@
 package it.uniroma3.diadia.ambienti;
+import static org.junit.Assert.assertEquals;
 
-import static org.junit.Assert.*;
-
+import org.junit.Before;
 import org.junit.Test;
 
 public class LabirintoTest {
@@ -9,14 +9,18 @@ public class LabirintoTest {
 	Stanza biblioteca;
 	Stanza DS1;
 
-	/**@Before
-	 * 
-	 */
+	@Before
 	public void setUp() {
-		l = new Labirinto();
-		l.creaStanze();
+		l = Labirinto.newBuilder()
+				.addStanzaIniziale("Atrio")
+				.addAttrezzo("martello", 3)
+				.addStanzaVincente("Biblioteca")
+				.addAdiacenza("Atrio", "Biblioteca", "nord")
+				.getLabirinto();
+		
 		biblioteca = new Stanza("Biblioteca");
 		DS1 = new Stanza("DS1");
+		
 	}
 
 

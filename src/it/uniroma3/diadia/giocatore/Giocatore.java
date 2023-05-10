@@ -7,8 +7,8 @@ public class Giocatore {
 	private Borsa borsa;
 
 	public Giocatore() {
-		this.cfu=CFU_INIZIALI;
-		this.borsa=new Borsa();
+		this.cfu= CFU_INIZIALI;
+		this.borsa= new Borsa();
 	}
 
 	public int getCfu() {

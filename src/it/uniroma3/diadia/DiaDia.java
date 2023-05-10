@@ -2,6 +2,8 @@ package it.uniroma3.diadia;
 
 
 
+import it.uniroma3.diadia.ambienti.Labirinto;
+import it.uniroma3.diadia.ambienti.LabirintoBuilder;
 import it.uniroma3.diadia.comandi.Comando;
 import it.uniroma3.diadia.comandi.FabbricaDiComandiFisarmonica;
 
@@ -11,7 +13,8 @@ import it.uniroma3.diadia.comandi.FabbricaDiComandiFisarmonica;
  *
  * Questa e' la classe principale crea e istanzia tutte le altre
  *
- * @author  docente di POO & Edoardo Corgnale (550405) e Francesco Squizzato 
+ * @author  docente di POO & 548019 & 547388
+ *         (da un'idea di Michael Kolling and David J. Barnes) 
  *          
  * @version base
  */
@@ -28,17 +31,17 @@ public class DiaDia {
 			"o regalarli se pensi che possano ingraziarti qualcuno.\n\n"+
 			"Per conoscere le istruzioni usa il comando 'aiuto'.";
 
-
 	private Partita partita;
 	private IO io;
 
-	public DiaDia(IO console) {
+	public DiaDia(IO console, Labirinto labirinto) {
 		this.io = console;
-		this.partita = new Partita();
+		this.partita = new Partita(labirinto);
 	}
 
 	public void gioca() {
 		String istruzione; 
+		//		Scanner scannerDiLinee;
 		io.mostraMessaggio(MESSAGGIO_BENVENUTO);
 		do {
 			istruzione = io.leggiRiga();
@@ -63,10 +66,17 @@ public class DiaDia {
 			io.mostraMessaggio("Hai esaurito i CFU...");
 		return this.partita.isFinita();
 	}
+	
 
 	public static void main(String[] argc) {
-		IO console =  new IOConsole();
-		DiaDia gioco = new DiaDia(console);
+		IO console = new IOConsole();
+		Labirinto labirinto = new LabirintoBuilder()
+										.addStanzaIniziale("Atrio")
+										.addAttrezzo("martello", 3)
+										.addStanzaVincente("Biblioteca")
+										.addAdiacenza("Atrio", "Biblioteca", "nord")
+										.getLabirinto();
+		DiaDia gioco = new DiaDia(console, labirinto);
 		gioco.gioca();
 	}
 

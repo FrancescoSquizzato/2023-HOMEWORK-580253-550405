@@ -42,6 +42,6 @@ public class FabbricaDiComandiFisarmonica {
 		comando.setParametro(parametro);
 		comando.setIo(this.io);
 		return comando;
-		//scannerDiParole.close();
+		//SscannerDiParole.close();
 	}
 }
