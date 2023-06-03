@@ -16,6 +16,7 @@ public class IOSimulator implements IO {
 		this.messaggiProdotti = messaggiProdotti;
 	}
 
+	//forse si potrebbe inserire una mappa al posto della lista per ricordare ogni riga letta quale messaggi abbia prodotto
 	private List<String> messaggiProdotti;
 	private int indiceMessaggiProdotti;
 	private int indiceMessaggiMostrati;

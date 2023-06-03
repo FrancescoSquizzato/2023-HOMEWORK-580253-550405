@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class StanzaTest {	
@@ -14,14 +15,14 @@ public class StanzaTest {
 	Attrezzo m = new Attrezzo("martello", 42);
 	@Test
 	public void testGetStanzaAdiacente() {
-		assertNull(s1.getStanzaAdiacente("sud"));
+		assertNull(s1.getStanzaAdiacente(Direzione.sud));
 	}
 	
 
 	@Test
 	public void testImpostaStanzaAdiacente() {
-		s1.impostaStanzaAdiacente("sud", s2);
-		assertEquals(s2, s1.getStanzaAdiacente("sud"));
+		s1.impostaStanzaAdiacente(Direzione.sud, s2);
+		assertEquals(s2, s1.getStanzaAdiacente(Direzione.sud));
 	}
 	
 	@Test

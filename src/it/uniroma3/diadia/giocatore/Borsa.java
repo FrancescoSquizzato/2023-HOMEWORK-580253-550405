@@ -9,12 +9,14 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import it.uniroma3.diadia.Configuratore;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.attrezzi.ComparatoreAttrezziPerPeso;
 
 public class Borsa {
 	
-	public final static int DEFAULT_PESO_MAX_BORSA = 10;
+	public final static int DEFAULT_PESO_MAX_BORSA = Configuratore.getPesoMax();
+	
 	private Map<String, Attrezzo> nome2attrezzi;
 	private int numeroAttrezzi;
 	private int pesoMax;
@@ -25,7 +27,6 @@ public class Borsa {
 	}
 	public Borsa(int pesoMax) {
 		this.pesoMax = pesoMax;
-		//this.attrezzi = new Attrezzo[10]; // speriamo che bastino...
 		this.nome2attrezzi = new TreeMap<>();
 		this.numeroAttrezzi = 0;
 		this.pesoAttuale = 0;
@@ -94,15 +95,7 @@ public class Borsa {
 		s.addAll(this.nome2attrezzi.values());
 		return s;
 	}
-//	List<Attrezzo> getContenutoOrdinatoPerPesoCompareTo(){
-//		Set<Attrezzo> s = new TreeSet<>();
-//		s.addAll(this.nome2attrezzi.values());
-//		List<Attrezzo> l = new ArrayList<>();
-//		
-//		l.addAll(s);
-//		return l;
-//	}
-	
+
 	List<Attrezzo> getContenutoOrdinatoPerPeso(){
 		List<Attrezzo> l = new ArrayList<>();
 		l.addAll(this.nome2attrezzi.values());

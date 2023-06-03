@@ -177,7 +177,7 @@ public class StanzaProtected {
 	 */
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
 		if(attrezzo!=null){
-			this.nome2attrezzi.remove(attrezzo.getNome());
+			this.nome2attrezzi.remove(attrezzo.getNome(), attrezzo);
 
 			return true;
 		}

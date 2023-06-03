@@ -10,7 +10,7 @@ public class FabbricaDiComandiFisarmonica {
 	public FabbricaDiComandiFisarmonica(IO io) {
 		this.io = io;
 	}
-
+	
 	public Comando costruisciComando(String istruzione) {
 		Scanner scannerDiParole = new Scanner(istruzione);
 		String nomeComando = null;
@@ -18,11 +18,9 @@ public class FabbricaDiComandiFisarmonica {
 		Comando comando = null;
 		if (scannerDiParole.hasNext())
 			nomeComando = scannerDiParole.next(); 
-
 		// prima parola: nome del comando
 		if (scannerDiParole.hasNext())
 			parametro = scannerDiParole.next();
-
 		// seconda parola: eventuale parametro
 		if (nomeComando == null)
 			comando = new ComandoNonValido();
@@ -42,6 +40,6 @@ public class FabbricaDiComandiFisarmonica {
 		comando.setParametro(parametro);
 		comando.setIo(this.io);
 		return comando;
-		//SscannerDiParole.close();
+		//scannerDiParole.close();
 	}
 }

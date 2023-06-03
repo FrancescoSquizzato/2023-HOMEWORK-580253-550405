@@ -1,5 +1,4 @@
 package it.uniroma3.diadia.attrezzi;
-
 import java.util.Objects;
 
 import it.uniroma3.diadia.ambienti.Stanza;
